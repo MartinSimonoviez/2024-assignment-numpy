@@ -1,3 +1,5 @@
+
+
 """Assignment - using numpy and making a PR.
 
 The goals of this assignment are:
@@ -15,7 +17,12 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
-import numpy as np
+
+import os
+
+os.chdir(
+    "/Users/martinsimonoviez/Desktop/IODAA" +
+    "/cours/datacamp-master/2024-assignment-numpy")
 
 
 def max_index(X):
@@ -37,12 +44,20 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
+    if "numpy" in str(type(X)):
+        raise ValueError('None')
+    if X.ndim != 2:
+        raise ValueError('Not in 2D')
     i = 0
     j = 0
-
-    # TODO
-
-    return i, j
+    max_local = X[0, 0]
+    for k in range(X.shape[0]):
+        for m in range(X.shape[1]):
+            if X[k, m] > max_local:
+                max_local = X[k, m]
+                i = k
+                j = m
+    return(i, j)
 
 
 def wallis_product(n_terms):
@@ -62,6 +77,9 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-    return 0.
+# XXX : The n_terms is an int that corresponds to the number of
+# terms in the product. For example 10000.
+    resultat = 2
+    for k in range(n_terms):
+        resultat = resultat*(4*((k+1)**2)/((4*((k+1)**2)-1)))
+    return resultat
