@@ -45,8 +45,8 @@ def max_index(X):
     i = 0
     j = 0
     max_local = X[0, 0]
-    for k in range(X.shape[0]+1):
-        for m in range(X.shape[1]+1):
+    for k in range(X.shape[0]):
+        for m in range(X.shape[1]):
             if X[k, m] > max_local:
                 max_local = X[k, m]
                 i = k
