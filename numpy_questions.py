@@ -38,7 +38,7 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    if "numpy" in str(type(X)):
+    if "numpy" not in str(type(X)):
         raise ValueError('None')
     if X.ndim != 2:
         raise ValueError('Not in 2D')
